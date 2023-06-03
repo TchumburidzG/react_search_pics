@@ -1,0 +1,17 @@
+.search-bar {
+    padding: 20px;
+    display: grid;
+    justify-content: center;
+}
+
+.search-input {
+    display: grid;
+    justify-content: center;
+    height: 35px;
+    width: 600px;
+    border-radius: 5px;
+    border-color: navy;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: monospace;
+}

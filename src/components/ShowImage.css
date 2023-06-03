@@ -1,0 +1,9 @@
+.each-image {
+    display: grid;
+    justify-content: space-around;
+}
+.img-div {
+
+    grid-auto-rows: 50px;
+    justify-content: space-around;
+}
