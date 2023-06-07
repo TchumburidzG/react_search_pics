@@ -14,7 +14,7 @@ on:
         type: string
 
 env:
-  DEPLOYMENT_FOLDER: webentwickeln.de
+  DEPLOYMENT_FOLDER: public
 
 jobs:
 # Please do not rename this job
@@ -39,18 +39,6 @@ jobs:
         run: |
           npm ci
           npm run build
-          npm run start
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: v16.x
-
-      - name: Build Node assets
-        env:
-          CI: true
-          SITE_URL: ${{ inputs.site-url }}
-        run: npm ci
 
 # Please do not touch the following action
       - name: Store deployment content
@@ -58,7 +46,7 @@ jobs:
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
           service-host: api-eu.ionos.space
-          project-id: 2194462f-bcb1-49e8-9368-1d1bef3e8a88
+          project-id: 682ff74d-ddcc-4c6e-a6f8-01f379e17a3b
           branch-id: ${{ inputs.branch-id }}
           version: ${{ github.sha }}
           folder: ${{ env.DEPLOYMENT_FOLDER }}
