@@ -39,7 +39,19 @@ jobs:
         run: |
           npm ci
           npm run build
+          npm run test
           npm run start
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: v16.x
+
+      - name: Build Node assets
+        env:
+          CI: true
+          SITE_URL: ${{ inputs.site-url }}
+        run: npm ci
 
 # Please do not touch the following action
       - name: Store deployment content
@@ -47,7 +59,7 @@ jobs:
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
           service-host: api-eu.ionos.space
-          project-id: 62007479-349c-40c2-9edf-c161877d2958
+          project-id: 1551144e-2287-4930-8519-00a396e25534
           branch-id: ${{ inputs.branch-id }}
           version: ${{ github.sha }}
           folder: ${{ env.DEPLOYMENT_FOLDER }}
